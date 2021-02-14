@@ -1,0 +1,36 @@
+extends template/main
+
+block variables
+    - var title = 'Аккаунт'
+    - const pageClass = 'account-page'
+
+block content
+    #scene
+        - for (let i = 1; i <=15; i++) {
+        +icon(`zodiac-${i}`)(data-depth="0.1")
+        - }
+        - for (let i = 1; i <=5; i++) {
+        img(src=`./static/images/general/constellation-${i}.png` data-depth=`0.${i + 2}` class=`constellation-${i}`)
+        - }
+    section.account
+        .container
+            .title Личные данные
+            .account__grid
+                .account__photo(data-aos="zoom-out")
+                    img(src="./static/images/content/lessons-photo.png")
+                    +form_element({
+                        type: 'file',
+                        placeholder: 'Загрузить файл',
+                        title: 'Загрузить файл',
+                        name: 'file',
+                        class_array: {
+                            block_class_mod: 'form-cell_type_file account__file-upl',
+                            hline_mod: 'form-cell__hline_type_file',
+                            wrapp_mod: 'form-cell__field-wrapper_type_file',
+                            elem_class: 'form-cell__field_type_file',
+                            file_mod: 'btn btn_transparent btn_big'
+                        }
+                    })(form="form-profile")
+                    span(style="font-size: 14px;") до 5 Мб
+                    span.form__value.js-value
+                include ./modules/forms/form-profile

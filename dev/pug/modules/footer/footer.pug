@@ -1,0 +1,87 @@
+footer.footer
+    .footer__wrapp
+        .logo.footer__logo
+            a(href="/").logo__link
+                img(src="./static/images/general/logo.png").logo__img
+        ul.contacts.footer__contacts
+            -
+                const contactsFooter = [
+                    {
+                        icon: 'phone',
+                        text: '+7 (000) 000-00-00',
+                        href: 'tel:+70000000000',
+                        sandwich: 'contacts__item_mobile_sandwich'
+                    },
+                    {
+                        icon: 'phone',
+                        text: '+7 (000) 000-00-00',
+                        href: 'tel:+70000000000',
+                        sandwich: 'contacts__item_mobile_sandwich'
+                    },
+                    {
+                        icon: 'calendar',
+                        text: 'ПН-ПТ с 08:00 до 19:00',
+                        href: '',
+                    },
+                    {
+                        icon: 'envelop',
+                        text: 'email@email.ru',
+                        href: 'mailto:email@email.ru',
+                    },]
+            each obj in contactsFooter
+                li.contacts__item(class= obj.sandwich)
+                    if obj.href
+                        a(href= obj.href).contacts__link
+                            .contacts__icon
+                                +icon(obj.icon)
+                            .contacts__text.header__text= obj.text
+                    else
+                        .contacts__icon
+                            +icon(obj.icon)
+                        .contacts__text.header__text(class= obj.mod)= obj.text
+        .footer__nav
+            -
+                var menuListFooter = [
+                    {
+                        title: "Обучение",
+                        link: "./lessons.html",
+                        showFooter: true,
+                        subnav: []
+                    }, {
+                        title: "Констультации",
+                        link: "./consultations.html",
+                        showFooter: true,
+                        subnav: []
+                    }, {
+                        title: "Публикации",
+                        link: "./publications.html",
+                        showFooter: true,
+                        subnav: []
+                    }, {
+                        title: "Вебинары",
+                        link: "./webinars.html",
+                        showFooter: true,
+                        subnav: []
+                    }, {
+                        title: "Кому это полезно",
+                        link: "#",
+                        showFooter: true,
+                        subnav: []
+                    }, {
+                        title: "Как проходит обучение",
+                        link: "#",
+                        showFooter: true,
+                        subnav: []
+                    }, {
+                        title: "Отзывы",
+                        link: "#reviews",
+                        showFooter: true,
+                        subnav: []
+                    }
+                ];
+            - var menuSelected = 'Контакты';
+            +menu(menuListFooter, menuSelected)
+        ul.socials.footer__socials
+            +socialLink('whatsapp', '#')
+            +socialLink('viber', '#')
+            +socialLink('telegram', '#')

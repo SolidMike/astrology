@@ -1,0 +1,36 @@
+include ../utils/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		link(rel="stylesheet" type='text/css' href="static/css/styles.min.css")
+	body(class=pageClass)
+		.wrapper
+			#site-overlay
+				.nav-mobile
+			include ../modules/header/header
+			.line_l_l.line
+			.line_l.line
+			.line_c.line
+			.line_r.line
+			.line_r_r.line
+			.content
+				block content
+			include ../modules/footer/footer
+			include ../modules/forms/modal-request
+			include ../modules/forms/modal-registration
+			include ../modules/forms/modal-login
+			include ../modules/forms/modal-review
+		#toTop
+		script(src="static/js/jquery-3.3.1.min.js")
+		script(src="static/js/libs.min.js")
+		script(src="static/js/main.js")
+		block script

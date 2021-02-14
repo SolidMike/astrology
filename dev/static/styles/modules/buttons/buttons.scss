@@ -1,0 +1,53 @@
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: rem(14px);
+  color: $black;
+  transition: all .3s;
+  min-width: 225px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  &:active {
+    transform: translateY(1px);
+  }
+  &__icon {
+    color: $black;
+    font-size: inherit;
+    &_left {
+      margin-right: rem(10px);
+    }
+    &_theme_transparent {
+      fill: $yellow;
+    }
+  }
+  &_default {
+    background-image: $btn-bg-gradient;
+    box-shadow: $btn-box-shadow;
+    border-radius: 30px;
+    padding: rem(12px) rem(50px);
+    border: none;
+  }
+  &_transparent {
+    color: $yellow;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: 0 1px 1px .5px $yellow;
+    transition: all .3s;
+    border-radius: 30px;
+    padding: rem(12px) rem(50px);
+    border: none;
+    &:hover {
+      background-image: $btn-bg-gradient;
+      box-shadow: $btn-box-shadow;
+      color: $black;
+      .btn__icon_theme_transparent {
+        fill: $black;
+      }
+    }
+  }
+  &_big {
+    width: 245px;
+    padding: .75rem 2rem;
+  }
+}

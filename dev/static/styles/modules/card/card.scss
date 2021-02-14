@@ -1,0 +1,74 @@
+.card {
+  background-color: $midnightblue;
+  border-radius: 10px;
+  color: $white;
+  text-align: center;
+  overflow: hidden;
+  &__header {
+    position: relative;
+  }
+  &__body {
+    padding: calc(1rem + 1vw) calc(1.5rem + 1vw);
+    display: flex;
+    flex-direction: column;
+    &_size_sm {
+      padding: calc(1rem + 1vw) calc(1rem + .4vw);
+    }
+  }
+  &__play {
+    background-image: url("../images/general/play.png");
+    height: 47px;
+    width: 47px;
+    @include center-vertically;
+    cursor: pointer;
+  }
+  &__img {
+    height: 190px;
+    width: 100%;
+  }
+  &__title {
+    flex: auto;
+  }
+  &__content {
+    margin-top: .9rem;
+    font-size: rem(18px);
+    max-height: 100px;
+    overflow-y: auto;
+    &_size_base {
+      font-size: rem(16px);
+    }
+  }
+  &__btn {
+    margin-top: 1.5rem;
+    align-self: center;
+  }
+  &__ribbon {
+    width: 48px;
+    height: 50px;
+    background-color: $midnightblue;
+    position: absolute;
+    top: 0;
+    left: 22px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      border-left: 24px solid $midnightblue;
+      border-right: 24px solid $midnightblue;
+      border-bottom: 10px solid transparent;
+    }
+  }
+  &__counter {
+    font-size: rem(20px);
+    font-weight: bold;
+    line-height: 1.2;
+    position: absolute;
+    @include center-vertically;
+    top: 45%;
+    span {
+      font-size: rem(10px);
+      font-weight: initial;
+    }
+  }
+}

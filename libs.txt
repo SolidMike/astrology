@@ -1,0 +1,6 @@
+svg4everyone
+swiper
+fancybox
+parallax
+aos
+maskedinput

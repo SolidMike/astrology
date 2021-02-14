@@ -1,0 +1,20 @@
+mixin card(obj)
+    .card(data-aos= obj.aos data-aos-delay= obj.aosDeley)
+        if obj.video
+            .card__header
+                .card__ribbon
+                    .card__counter !{obj.counter}
+                a(data-fancybox href= obj.video).card__video
+                    .card__play
+                    img(src= obj.img).card__img
+            .card__body
+                .card__title.subtitle #{obj.title}
+                .card__content #{obj.content}
+                +btn({label: obj.label, href: obj.link, skin: 'transparent'})(class="card__btn")
+        else
+            .card__header
+                img(src= obj.img).card__img
+            .card__body.card__body_size_sm
+                .card__title.subtitle #{obj.title}
+                .card__content.card__content_size_base #{obj.content}
+                +btn({label: obj.label, href: obj.link, skin: 'transparent'})(class="card__btn")

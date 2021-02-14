@@ -1,0 +1,103 @@
+extends template/main
+
+block variables
+    - var title = 'Консультации'
+    - const pageClass = 'consultations-page'
+
+block content
+    #scene
+        - for (let i = 1; i <=15; i++) {
+        +icon(`zodiac-${i}`)(data-depth="0.1")
+        - }
+        - for (let i = 1; i <=5; i++) {
+        img(src=`./static/images/general/constellation-${i}.png` data-depth=`0.${i + 2}` class=`constellation-${i}`)
+        - }
+    section.consultations
+        .container
+            ul.breadcrumbs
+                +breadcrumbs-item('Главная','/')
+                +breadcrumbs-item('Консультации')
+            .title Консультации
+            .cards-grid
+                -
+                    const consult = [
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '50'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '550'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '1050'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '1550'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '2050'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '2550'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '3050'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '3550'
+                                },
+                                {
+                                    title: 'название',
+                                    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+                                    link: './content.html',
+                                    label: 'Подробнее',
+                                    aos: 'flip-up',
+                                    aosDeley: '4550'
+                                },
+                    ]
+                each o in consult
+                    .card(data-aos= o.aos data-aos-delay= o.aosDeley )
+                        .card__body.card__body_size_sm
+                            .card__title.subtitle #{o.title}
+                            .card__content.card__content_size_base #{o.content}
+                            +btn({label: o.label, href: o.link, skin: 'transparent'})(class="card__btn")
+            +pagination(5, 3, 4, 9, arrows)

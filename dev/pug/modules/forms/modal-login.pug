@@ -1,0 +1,17 @@
+form#modal-login.form.form_modal(action="#" method="post")
+    .form__header
+        .form__title Вход в аккаунт
+    .form__body
+        +form_element({type: 'email', placeholder: 'Ваша почта', title: 'Почта', name: 'email', class_array: {block_class_mod: 'form-cell_half_width'}})
+        dl.form-cell.form-cell_half_width
+            dt.form-cell__hline
+                label(for='pass') Пароль
+            dd.form-cell__field-wrapper
+                span(onclick='togglePass(event)').form-cell__toggle.is-active
+                input.form-cell__field(type='password' name='pass' id="pass" placeholder='Пароль' value="pass_123")
+    .form__policy
+        a(href="#") Восстановить пароль
+    .form__btn-wrapp
+        +btn({label: 'Войти'})(type="submit" class="form__btn")
+    .form__policy У вас еще нет аккаунта? #[br]
+        a.modal-btn(href="#modal-registration") Зарегистрироваться

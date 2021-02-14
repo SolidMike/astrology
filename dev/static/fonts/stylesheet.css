@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Madelyn Doodles';
+    src: url('MadelynDoodles-Regular.eot');
+    src: local('Madelyn Doodles Regular'), local('MadelynDoodles-Regular'),
+        url('MadelynDoodles-Regular.eot?#iefix') format('embedded-opentype'),
+        url('MadelynDoodles-Regular.woff2') format('woff2'),
+        url('MadelynDoodles-Regular.woff') format('woff'),
+        url('MadelynDoodles-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Madelyn';
+    src: url('Madelyn-Regular.eot');
+    src: local('Madelyn Regular'), local('Madelyn-Regular'),
+        url('Madelyn-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Madelyn-Regular.woff2') format('woff2'),
+        url('Madelyn-Regular.woff') format('woff'),
+        url('Madelyn-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Madelyn Fill';
+    src: url('MadelynFill-Regular.eot');
+    src: local('Madelyn Fill Regular'), local('MadelynFill-Regular'),
+        url('MadelynFill-Regular.eot?#iefix') format('embedded-opentype'),
+        url('MadelynFill-Regular.woff2') format('woff2'),
+        url('MadelynFill-Regular.woff') format('woff'),
+        url('MadelynFill-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Madelyn Doodles Fill';
+    src: url('MadelynDoodlesFill-Regular.eot');
+    src: local('Madelyn Doodles Fill Regular'), local('MadelynDoodlesFill-Regular'),
+        url('MadelynDoodlesFill-Regular.eot?#iefix') format('embedded-opentype'),
+        url('MadelynDoodlesFill-Regular.woff2') format('woff2'),
+        url('MadelynDoodlesFill-Regular.woff') format('woff'),
+        url('MadelynDoodlesFill-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

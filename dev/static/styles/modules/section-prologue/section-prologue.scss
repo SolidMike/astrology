@@ -1,0 +1,46 @@
+.prologue {
+  padding: calc(2rem + 6.3vw) 0;
+  @include screen(768px) {
+    padding: 1rem 0;
+  }
+  &__title {
+    @include fluid-type($min-width, $max-width, $min-font, 50px);
+    margin: 0;
+  }
+  &__planet {
+    position: absolute;
+    right: 6.5vw;
+    top: 15%;
+    animation-name: spin;
+    animation-duration: 50000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    @include screen(1400px) {
+      right: 0;
+    }
+    @include screen(1160px) {
+      display: none;
+    }
+    @keyframes spin {
+      from {
+        transform:rotate(0deg);
+      }
+      to {
+        transform:rotate(360deg);
+      }
+    }
+  }
+  &__text-1 {
+    font-size: 20px;
+    font-family: 'FuturaPT-Bold';
+    margin-top: 1rem;
+  }
+  &__text-2 {
+    font-size: 18px;
+    word-spacing: 5px;
+    margin-top: 1rem;
+  }
+  &__btn {
+    margin-top: 2.5rem;
+  }
+}

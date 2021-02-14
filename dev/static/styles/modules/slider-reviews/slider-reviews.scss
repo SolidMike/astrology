@@ -1,0 +1,52 @@
+.reviews {
+  &__slider {
+    margin-top: calc(2rem + 2vw);
+    &_desktop {
+      @include screen(1050px) {
+        display: none;
+      }
+    }
+    &_mobile {
+      display: none;
+      @include screen(1050px) {
+        display: block;
+      }
+    }
+  }
+  &__slides-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 650px;
+    margin: -15px;
+  }
+  &__card {
+    text-align: center;
+    @include flex-center-column;
+    border-radius: 10px;
+    background-color: $midnightblue;
+    padding: 2rem;
+    margin: 15px;
+    width: calc(1/3*100% - 30px);
+    @include screen(1050px) {
+      width: 100%;
+      margin: 0;
+    }
+  }
+  &__date {
+    color: $yellow;
+    font-size: rem(12px);
+  }
+  &__author {
+    margin-top: .8rem;
+  }
+  &__content {
+    margin-top: 1rem;
+    line-height: 1.4;
+  }
+  &__btn-wrapp {
+    @include screen(1050px) {
+      margin-top: calc(1.5rem + 1vw);
+    }
+  }
+}

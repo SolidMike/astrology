@@ -1,0 +1,75 @@
+section#reviews.reviews
+    .container
+        .title Отзывы
+        .swiper-container.reviews__slider.reviews__slider_desktop
+            .swiper-wrapper
+                -
+                    const reviews = [
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '50'
+                        },
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. ',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '550'
+                        },
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. ',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '1050'
+                        },
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.  Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '1550'
+                        },
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.  Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '2050'
+                        },
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию.',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '2550'
+                        },
+                        {
+                            auth: 'Анастасия',
+                            content: 'Отзыв, изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.',
+                            date: '26.11.20',
+                            aos: 'zoom-in',
+                            aosDeley: '3050'
+                        },
+                        ]
+                each review in reviews
+                    .swiper-slide
+                        .reviews__slides-grid
+                            each review in reviews
+                                .reviews__card(data-aos=review.aos data-aos-delay=review.aosDelay)
+                                    .reviews__date= review.date
+                                    .reviews__author.subtitle= review.auth
+                                    .reviews__content= review.content
+        .swiper-container.reviews__slider.reviews__slider_mobile
+            .swiper-wrapper
+                each review in reviews
+                    .swiper-slide
+                        .reviews__card(data-aos=review.aos data-aos-delay=review.aosDelay)
+                            .reviews__date= review.date
+                            .reviews__author.subtitle= review.auth
+                            .reviews__content= review.content
+        .btn-wrapp.reviews__btn-wrapp
+            +btn({label: 'Оставить отзыв', href: '#modal-review'})(class="modal-btn")

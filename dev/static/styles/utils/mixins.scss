@@ -1,0 +1,347 @@
+//Делаем квадрат
+@mixin box($a,$b: $a) {
+  width: $a;
+  height: $b;
+}
+
+//Бэкграунд
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+//Псевдоэлемент
+@mixin pseudo(
+  $width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ""
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include box($width, $height);
+}
+
+//Показать/скрыть с анимацией
+@mixin fade($type) {
+  @if $type== "hide" {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
+  } @else if $type== "show" {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+  }
+}
+
+//Делаем стрелки
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+   width: 0;
+   height: 0;
+   @if ($direction == left) {
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent; 
+      border-right: $size solid $color;
+   }
+   @else if ($direction == right) {
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent; 
+      border-left: $size solid $color;
+   }
+   @else if ($direction == down) {
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-top: $size solid $color;
+   }
+   @else {
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+   }
+}
+//Пример
+/*
+without arguments (default)
+	div { 
+	   @include arrow(); 
+	}
+
+with custom arguments
+	div {
+	   @include arrow(up, 10px, #efefef);
+	}
+*/
+
+//Горизонтальное центрирование
+@mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+//Вертикальное центрирование
+@mixin center-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-right: -50%;
+}
+
+//Позиция
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+  position: $position;
+}
+
+// Positioning helpers
+@mixin absolute($args: '') {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args: '') {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args: '') {
+  @include position(relative, $args);
+}
+//Пример
+/*
+.menu li {
+  @include relative;
+}
+
+.sub-menu {
+  @include absolute(top 100% left 0);
+}
+
+.sticky-bar {
+  @include fixed(top 0 left 0);
+}
+*/
+
+//Обрезка текста
+@mixin truncateText($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow;
+}
+
+//Флексбокс шортхэнды
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+//Границы
+@mixin border(
+    $border-size: 1px,
+    $border-pattern: solid,
+    $border-color: black,
+    $border-position: all,
+    $border-clear: none ) {
+  @if $border-position == all {
+    border: $border-size $border-pattern $border-color;
+  }
+  @else {
+    border-#{$border-position}: $border-size
+    $border-pattern $border-color;
+  }
+  @if $border-clear == none {
+    $border-position: all;
+  }
+  @else {
+    border-#{$border-clear}: none;
+  }
+}
+//Пример
+/*
+.border-all {
+  @include border(5px,solid,#0080FF,all);
+}
+.border-less-bottom {
+  @include border(5px,solid,#0080FF,all,bottom);
+}
+.border-top {
+  @include border(5px,dashed,#0080FF,top);
+}
+*/
+
+//Умные медиазапросы
+$units: 1px !default;
+@mixin screen($res-first, $res-last: $res-first) {
+  @if $res-first == $res-last {
+    @media screen and (max-width: if(unitless($res-first), ($res-first - 1) *$units, $res-first)) {
+      @content;
+    }
+  }
+  @else if $res-first < $res-last {
+    @media screen and (min-width: if(unitless($res-first), $res-first*$units, $res-first)) and (max-width: if(unitless($res-last), $res-last*$units, $res-last)) {
+      @content;
+    }
+  }
+}
+
+@mixin min-screen($res) {
+  @media screen and (min-width: if(unitless($res), $res*$units, $res)) {
+    @content;
+  }
+}
+//Пример
+/*
+Example 1:
+	.example
+	{
+	    @include min-screen(320) { width: 300px; }
+	}
+
+Will be compiled to:
+	@media screen and ( min-width: 320px) )
+	{
+	  .example
+	  {
+	    width: 300px;
+	  }
+	}
+
+Example 2:
+	.example
+	{  
+	    @include screen(1024) { background: red; }
+	}
+
+Will be compiled to:
+	@media screen and ( max-width: 1024px )
+	{
+	  .example
+	  {
+	    color: red;
+	  }
+	}
+Example 3:
+	.example
+	{  
+	    @include screen(768, 1280) { background: black; }
+	}
+
+Will be compiled to:
+	@media screen and ( min-width: 768px ) and ( max-width: 1280px )
+	{
+	  .example
+	  {
+	    background: black;
+	  }
+	}
+*/
+
+//Fluid typography
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+//Пример
+/*
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 16px;
+$max_font: 24px;
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+*/
+
+//Конвертация px в em или rem
+@function em($pixels, $context: $base-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+@function rem($pixels, $context: $base-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+//Размер шрифта
+@mixin font-size($fs: false, $lh: $default-line-height, $sm: $default-font-smoothing ) {
+   @if $fs {
+        font-size: $fs  + px;
+        font-size: rem($fs);
+    }
+    @if $lh { line-height: $lh; }
+    @if $sm { -webkit-font-smoothing: $sm; }
+}
+// Use
+/*
+@include font-size($fs: 14px, $sm: subpixel-antialiased, $lh: 1.5);
+*/
+// Defaults values
+/*
+$default-line-height: 1.5 !default;
+$default-font-smoothing: subpixel-antialiased !default;
+*/

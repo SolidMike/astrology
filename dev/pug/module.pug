@@ -1,0 +1,44 @@
+extends template/main
+
+block variables
+    - var title = 'Модуль'
+    - const pageClass = 'module-page'
+
+block content
+    #scene
+        - for (let i = 1; i <=15; i++) {
+        +icon(`zodiac-${i}`)(data-depth="0.1")
+        - }
+        - for (let i = 1; i <=5; i++) {
+        img(src=`./static/images/general/constellation-${i}.png` data-depth=`0.${i + 2}` class=`constellation-${i}`)
+        - }
+    section.module
+        .container
+            ul.breadcrumbs
+                +breadcrumbs-item('Главная','/')
+                +breadcrumbs-item('Наши курсы','./account-courses.html')
+                +breadcrumbs-item('Название конкретного курса', './course.html')
+                +breadcrumbs-item('Название конкретного модуля')
+            .title Название конкретного модуля
+            .module-description(data-aos="zoom-in")
+                p Описание модуля.
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                br
+                p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            .cards-grid
+                - let sum = 50
+                - for (let i = 1; i <= 8; i++) {
+                - let delay = 500
+                .card(data-aos="flip-right" data-aos-delay= sum)
+                    .card__header
+                        .card__ribbon
+                            .card__counter 0#{i}
+                        a(data-fancybox href="https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39").card__video
+                            .card__play
+                            img(src="./static/images/content/placeholder.jpg").card__img
+                    .card__body
+                        .card__title.subtitle Заголовок курса
+                        .card__content Краткое описание курса, если нужно, или что-то другое
+                        +btn({label: 'Перейти к уроку', href: './lessons.html', skin: 'transparent'})(class="card__btn")
+                - sum += delay
+                - }

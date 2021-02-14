@@ -1,0 +1,33 @@
+.greetings {
+  &__grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    grid-gap: rem(30px);
+    @include screen(768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 250px auto;
+    }
+  }
+  &__content {
+    line-height: 1.2;
+  }
+  &__photo {
+    position: relative;
+    & > img {
+      position: absolute;
+      top: -40px;
+    }
+    @include screen(768px) {
+      grid-row: 1;
+      height: 100%;
+      @include push--auto;
+      & > img {
+        position: initial;
+        height: 100%;
+      }
+    }
+  }
+  &__sign {
+    margin-top: .5em;
+  }
+}

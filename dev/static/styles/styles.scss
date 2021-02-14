@@ -1,0 +1,233 @@
+@import "utils/libs";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";
+@import "utils/sprite";
+
+html {
+  font-size: $base-font-size;
+  height: 100%;
+  font-family: 'FuturaPT-Book';
+  color: $white;
+}
+
+body {
+  height: 100%;
+  position: relative;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: $default-line-height;
+  -moz-osx-font-smoothing: $default-font-smoothing;
+  -webkit-font-smoothing: $default-font-smoothing;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd { margin: 0; }
+
+a:not([class]) { text-decoration-skip-ink: auto; }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select { font: inherit; }
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea { vertical-align: middle; }
+
+textarea { resize: none; }
+
+section {
+  position: relative;
+  padding: calc(.5rem + 3.5vw) 0;
+}
+
+input,
+select,
+button { outline: none; }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $content-size;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.title {
+  @include fluid-type($min-width, $max-width, $min-font, $max-font);
+  margin: .5em 0;
+  line-height: 1;
+  font-family: 'FuturaPT-Bold';
+}
+
+.subtitle {
+  font-size: rem(20px);
+  text-transform: uppercase;
+  font-family: 'FuturaPT-Medium';
+}
+
+.text {
+  &_fancy {
+    font-family: 'Madelyn';
+    color: $yellow;
+    line-height: 1;
+    @include fluid-type($min-width, $max-width, $min-font, 50px);
+  }
+  &_bold {
+    font-family: 'FuturaPT-Bold';
+  }
+  &_align_right {
+    text-align: right;
+  }
+}
+
+.module-description {
+  margin-top: calc(1rem + 1.5vw);
+  margin-bottom: calc(2.5rem + 3vw);
+  line-height: 1.3;
+}
+
+.home-page .wrapper {
+  background: url("../images/general/home-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.lessons-page .wrapper {
+  background: url("../images/general/lessons-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.account-page .wrapper {
+  background: url("../images/general/account-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.teaching-page .wrapper {
+  background: url("../images/general/teaching-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.content-page .wrapper {
+  background: url("../images/general/content-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.course-page .wrapper {
+  background: url("../images/general/course-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.module-page .wrapper {
+  background: url("../images/general/module-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.consultations-page .wrapper {
+  background: url("../images/general/consultations-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+.publications-page .wrapper,
+.webinars-page .wrapper,
+.account-courses-page .wrapper {
+  background: url("../images/general/publications-bg.jpg") no-repeat top center;
+  background-size: cover;
+}
+
+.line {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  &_l_l {
+    left: 8.2vw
+  }
+  &_l {
+    left: 28.9vw;
+  }
+  &_c {
+    left: 49.6vw;
+  }
+  &_r {
+    left: 70.3vw;
+  }
+  &_r_r {
+    left: 91vw;
+  }
+}
+
+.logo {
+  flex: none;
+  @include screen(910px) {
+    width: 50px;
+  }
+}
+
+.btn-wrapp {
+  text-align: center;
+}
+
+#scene {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#toTop {
+  width: calc(3rem + 1vw);
+  height: calc(3rem + 1vw);
+  background-image: url("../images/general/arrow-up.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  position: fixed;
+  opacity: 0.7;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+//Модули
+@import "modules/modules";

@@ -1,0 +1,67 @@
+mixin menu(menuSelected)
+    nav.menu
+        ul.menu__list
+            each menuItem in menuList
+                +menu_item(menuItem, menuSelected, submenuSelected)
+
+mixin menu_item(menuItem, menuSelected, submenuSelected)
+    li.menu__item(class = menuSelected === menuItem.title ? "active" : "")
+        a.menu__link(href = menuItem.link)= menuItem.title
+        if menuItem.subnav.length > 0
+            ul.submenu
+                each submenuItem in menuItem.subnav
+                    li.submenu__item(class = submenuSelected === submenuItem.title ? "active" : "")
+                        a.submenu__link(href=submenuItem.link)=submenuItem.title
+
+ -
+     var menuList = [
+         {
+             title: "Menu item 1",
+             link: "#",
+             showFooter: true,
+             subnav: [
+                 {
+                     title: "Submenu item 1",
+                     link: "#",
+                 },
+                 {
+                     title: "Submenu item 2",
+                     link: "#",
+                 }
+             ]
+         }, {
+             title: "Menu item 2",
+             link: "areas.html",
+             showFooter: true,
+             subnav: [
+                 {
+                     title: "Submenu item 1",
+                     link: "#",
+                 },
+                 {
+                     title: "Submenu item 2",
+                     link: "#",
+                 },
+             ]
+         }, {
+             title: "Menu item 3",
+             link: "#",
+             showFooter: true,
+             subnav: [
+                 {
+                     title: "Submenu item 1",
+                     link: "#",
+                 },
+                 {
+                     title: "Submenu item  2",
+                     link: "#",
+                 },
+             ]
+         }
+     ];
+
+ body
+     .wrap
+         h1 Menu with sub menu
+         - var menuSelected = 'Menu item 1';
+         +menu(menuSelected)

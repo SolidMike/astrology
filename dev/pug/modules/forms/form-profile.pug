@@ -1,0 +1,42 @@
+form#form-profile.form.form_size_sm(action="#" method="post" data-aos="zoom-out")
+    .form__header
+        .form__subtitle Заполните данные своего профиля, чтобы полноценно пользоваться всеми функциями сервиса
+    .form__body
+        +form_element({
+            type: 'text',
+            placeholder: 'Ваше имя',
+            title: 'Имя',
+            name: 'name',
+            class_array: {block_class_mod: 'form-cell_third_width'}
+        })
+        +form_element({
+            type: 'email',
+            placeholder: 'Почта',
+            title: 'Email',
+            name: 'phone',
+            class_array: {block_class_mod: 'form-cell_third_width'}
+        })
+        +form_element({
+            type: 'text',
+            placeholder: 'Ваша Фамилия',
+            title: 'Фамилия',
+            name: 'lastname',
+            class_array: {block_class_mod: 'form-cell_third_width'}
+        })
+        +form_element({
+            type: 'text',
+            placeholder: '+7 (___) ___-__-__',
+            title: 'Телефон',
+            name: 'phone',
+            class_array: {block_class_mod: 'form-cell_third_width'}
+        })
+        +form_element({
+            type: 'text',
+            placeholder: 'ваш Telegram',
+            title: 'Telegram',
+            name: 'telegram',
+            class_array: {block_class_mod: 'form-cell_third_width'}
+        })
+    .form__btn-wrapp
+        +btn({label: 'Сохранить изменения', size: 'big'})(type="submit" class="form__btn")
+

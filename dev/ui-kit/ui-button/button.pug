@@ -1,0 +1,41 @@
+//- Button 1.1
+//- 1.1: Added disabled state
+mixin btn(options, attributes)
+  - var DEFAULT_OPTIONS = {};
+  - DEFAULT_OPTIONS.label = 'Button label' // string
+  - DEFAULT_OPTIONS.skin = 'default' // string
+  - DEFAULT_OPTIONS.size = false // string
+  - DEFAULT_OPTIONS.href = false // string
+  - DEFAULT_OPTIONS.icon = false // object
+  - DEFAULT_OPTIONS.disabled = false // boolean
+  - DEFAULT_OPTIONS.iconPosition = 'left' // can be {left, right}
+
+  //- Options that shouldn't be used
+  - DEFAULT_OPTIONS.variant = false // string
+
+  - options = Object.assign({}, DEFAULT_OPTIONS, options || {});
+  
+  mixin btn-content
+      if options.icon && !options.iconPosition || options.icon && options.iconPosition == "left"
+          +icon(options.icon.name, options.icon.mod)
+          span.btn__label= options.label
+      if options.icon && options.iconPosition == "right"
+          span.btn__label= options.label
+          +icon(options.icon.name, options.icon.mod)
+      if !options.icon
+          span.btn__label= options.label
+      block
+
+  if options.variant
+      | Error: please use skin to denote button variants
+
+  if options.disabled && !options.href
+       button.btn( class=`${ options.size ? "btn_" + options.size : ""} ${ "btn_" + options.skin}` type="button" disabled)&attributes(attributes)
+           +btn-content
+  else
+      if options.href
+          a.btn(class=`${ options.size ? "btn_" + options.size : ""} ${ options.disabled ? "btn_disabled" : ""} ${ options.skin ? "btn_" + options.skin : ""}` href=options.href)&attributes(attributes)
+              +btn-content
+      if !options.href
+          button.btn( class=`${ options.size ? "btn_" + options.size : ""} ${ "btn_" + options.skin}` type="button")&attributes(attributes)
+              +btn-content

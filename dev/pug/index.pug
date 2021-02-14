@@ -1,0 +1,19 @@
+extends template/main
+
+block variables
+	- var title = 'Главная страница'
+	- const pageClass = 'home-page'
+
+block content
+	#scene
+		- for (let i = 1; i <=15; i++) {
+			+icon(`zodiac-${i}`)(data-depth="0.1")
+		- }
+		- for (let i = 1; i <=5; i++) {
+			img(src=`./static/images/general/constellation-${i}.png` data-depth=`0.${i + 1}` class=`constellation-${i}`)
+		- }
+	include ./pages/index/prologue
+	include ./pages/index/greetings
+	include ./pages/index/courses
+	include ./pages/index/advantages
+	include ./pages/index/reviews

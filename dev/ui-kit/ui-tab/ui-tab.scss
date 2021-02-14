@@ -1,0 +1,14 @@
+.tabs {
+    &-nav {
+        display: flex;
+        &__item {
+
+        }
+    }
+    &-content {
+        &__item {
+            display: none;
+            &.is-active { display: block; }
+        }
+    }
+}

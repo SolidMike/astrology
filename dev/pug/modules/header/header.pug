@@ -1,0 +1,113 @@
+header.header
+    .header__wrapp
+        .logo
+            a(href="/").logo__link
+                img(src="./static/images/general/logo.png").logo__img
+        .header__content
+            .header__top-panel
+                ul.contacts.header__contacts
+                    -
+                        const contactsHeader = [
+                            {
+                                icon: 'phone',
+                                text: '+7 (000) 000-00-00',
+                                href: 'tel:+70000000000',
+                                sandwich: 'contacts__item_mobile_sandwich'
+                            },
+                            {
+                                icon: 'calendar',
+                                text: 'ПН-ПТ с 08:00 до 19:00',
+                                href: '',
+                            },
+                            {
+                                icon: 'phone',
+                                text: '+7 (000) 000-00-00',
+                                href: 'tel:+70000000000',
+                                sandwich: 'contacts__item_mobile_sandwich'
+                            },
+                            {
+                                icon: 'envelop',
+                                text: 'email@email.ru',
+                                href: 'mailto:email@email.ru',
+                            },]
+                    each obj in contactsHeader
+                        li.contacts__item(class= obj.sandwich)
+                            if obj.href
+                                a(href= obj.href).contacts__link
+                                    .contacts__icon
+                                        +icon(obj.icon)
+                                    .contacts__text.header__text= obj.text
+                            else
+                                .contacts__icon
+                                    +icon(obj.icon)
+                                .contacts__text.header__text(class= obj.mod)= obj.text
+                ul.socials.header__socials
+                    +socialLink('whatsapp', '#')
+                    +socialLink('viber', '#')
+                    +socialLink('telegram', '#')
+                .header__dropdown
+                    .header__username Анастасия
+                    +icon('caret-down')
+                    ul.header__drop-content
+                        li.header__drop-item
+                            a.header__drop-link(href="./account.html") Профиль
+                        li.header__drop-item
+                            a.header__drop-link(href="./account-courses.html") Мои курсы
+                .header__login.login
+                    a.login__link.modal-btn(href="#modal-login")
+                        +icon('login')
+                        .login__text Войти
+                .header__btns
+                    +btn({label: 'Заказать звонок', icon: {name: 'phone', mod: 'btn__icon_left btn__icon'}, iconPosition: 'left', href: '#modal-request'})(class="header__btn modal-btn")
+                    .sandwich(data-target-id="site-overlay" data-target-class-toggle="is-active")
+                        .sandwich__line.sandwich__line--top
+                        .sandwich__line.sandwich__line--middle
+                        .sandwich__line.sandwich__line--bottom
+            .header__nav
+                -
+                    var menuList = [
+                        {
+                            title: "Обучение",
+                            link: "./teaching.html",
+                            showFooter: true,
+                            subnav: [
+                                {
+                                    title: "Контентная страница",
+                                    link: "./content.html",
+                                }
+                            ]
+                        }, {
+                            title: "Констультации",
+                            link: "./consultations.html",
+                            showFooter: true,
+                            subnav: []
+                        }, {
+                            title: "Публикации",
+                            link: "./publications.html",
+                            showFooter: true,
+                            subnav: []
+                        }, {
+                            title: "Вебинары",
+                            link: "./webinars.html",
+                            showFooter: true,
+                            subnav: []
+                        }, {
+                            title: "Кому это полезно",
+                            link: "./account.html",
+                            showFooter: true,
+                            subnav: []
+                        }, {
+                            title: "Как проходит обучение",
+                            link: "./lessons.html",
+                            showFooter: true,
+                            subnav: []
+                        }, {
+                            title: "Отзывы",
+                            link: "#reviews",
+                            showFooter: true,
+                            subnav: []
+                        }
+                    ];
+                - var menuSelected = 'Контакты';
+                +menu(menuList, menuSelected)
+

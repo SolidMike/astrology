@@ -1,0 +1,145 @@
+extends template/main
+
+block variables
+    - var title = 'Мои курсы'
+    - const pageClass = 'account-courses-page'
+
+block content
+    #scene
+        - for (let i = 1; i <=15; i++) {
+        +icon(`zodiac-${i}`)(data-depth="0.1")
+        - }
+        - for (let i = 1; i <=5; i++) {
+        img(src=`./static/images/general/constellation-${i}.png` data-depth=`0.${i + 2}` class=`constellation-${i}`)
+        - }
+    section.account-courses
+        .container
+            ul.breadcrumbs
+                +breadcrumbs-item('Главная','/')
+                +breadcrumbs-item('Мои курсы')
+            .title Мои курсы
+            ul.tabs-nav
+                li(data-tab-name="tab-1" data-aos="zoom-out" data-aos-delay="50").tabs-nav__item.btn.btn_default.tabs-nav__item--active.is-active Название выделенной категории
+                li(data-tab-name="tab-2" data-aos="zoom-out" data-aos-delay="550").tabs-nav__item.btn.btn_transparent Название категории
+                li(data-tab-name="tab-3" data-aos="zoom-out" data-aos-delay="1050").tabs-nav__item.btn.btn_transparent Название еще одной категории
+                li(data-tab-name="tab-4" data-aos="zoom-out" data-aos-delay="1550").tabs-nav__item.btn.btn_transparent Название категории
+                li(data-tab-name="tab-5" data-aos="zoom-out" data-aos-delay="2050").tabs-nav__item.btn.btn_transparent Название категории
+
+            .tabs-content
+                -
+                    const cards = [
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '01',
+                            aos: 'flip-left',
+                            aosDeley: '50'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '02',
+                            aos: 'flip-left',
+                            aosDeley: '550'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '03',
+                            aos: 'flip-left',
+                            aosDeley: '1050'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '04',
+                            aos: 'flip-left',
+                            aosDeley: '1550'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '05',
+                            aos: 'flip-left',
+                            aosDeley: '2050'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '06',
+                            aos: 'flip-left',
+                            aosDeley: '2550'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '07',
+                            aos: 'flip-left',
+                            aosDeley: '3050'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '08',
+                            aos: 'flip-left',
+                            aosDeley: '3550'
+                        },
+                        {
+                            video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                            img: './static/images/content/placeholder.jpg',
+                            title: 'Заголовок курса',
+                            content: 'Краткое описание курса, если нужно, или что-то другое',
+                            link: './course.html',
+                            label: 'Перейти к курсу',
+                            counter: '09',
+                            aos: 'flip-left',
+                            aosDeley: '4050'
+                        },
+                    ]
+                .tabs-content__item.tab-1.tabs-content__item--active.is-active
+                    .cards-grid
+                        each o in cards
+                            +card(o)
+                .tabs-content__item.tab-2
+                    .cards-grid
+                        each o in cards
+                            +card(o)
+                .tabs-content__item.tab-3
+                    p 3
+                .tabs-content__item.tab-4
+                    p 4
+                .tabs-content__item.tab-5
+                    p 5
+            +pagination(5, 3, 4, 9, arrows)

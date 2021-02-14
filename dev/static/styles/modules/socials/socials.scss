@@ -1,0 +1,13 @@
+.socials {
+  display: flex;
+  align-items: center;
+  &__item {
+    margin: 0 .5rem;
+  }
+  &__link {
+    color: inherit;
+  }
+  .svg-sprite-icon {
+    font-size: rem(28px);
+  }
+}

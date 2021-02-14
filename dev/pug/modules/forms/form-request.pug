@@ -1,0 +1,13 @@
+form#form-request.form(action="#" method="post")
+    .form__header
+        .form__title Заполните заявку
+        .form__subtitle и наши специалисты свяжуться с вами
+    .form__body
+        +form_element({type: 'text', placeholder: 'Имя', title: 'Имя', name: 'name', class_array: {block_class_mod: 'form-cell_half_width'}})
+        +form_element({type: 'text', placeholder: '+7 (___) ___-__-__', title: 'Телефон', name: 'phone', class_array: {block_class_mod: 'form-cell_half_width'}})
+        +form_element({type: 'textarea', placeholder: 'Сообщение', title: 'Сообщение', name: 'message', class_array: {block_class_mod: 'form-cell_full_width'}})
+        .form__policy Нажимая на кнопку, вы даете согласие на обработку своих персональных данных #[br]
+            a(href="#") Политика конфиденциальности
+    .form__btn-wrapp
+        +btn({label: 'Отправить'})(type="submit" class="form__btn")
+

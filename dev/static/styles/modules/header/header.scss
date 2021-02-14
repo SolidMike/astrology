@@ -1,0 +1,140 @@
+header { flex: 0 0 auto; }
+.header {
+  z-index: 10;
+  &_fixed {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: -50%;
+    width: 100%;
+    background-color: $midnightblue;
+  }
+  &__wrapp {
+    @extend .container;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: $white;
+    padding-top: calc(.5rem + .7vw);
+    padding-bottom: calc(.5rem + .7vw);
+  }
+  &__socials {
+    margin-right: auto;
+    margin-left: 2rem;
+    @include screen(1050px) {
+      margin-left: 0;
+    }
+  }
+  &__contacts {
+    max-width: 40%;
+    margin: 0 -.5rem;
+    @include screen(1050px) {
+      flex-direction: column;
+      max-width: none;
+    }
+    .contacts__item {
+      width: calc(1/2 * 100% - 1rem);
+      margin: 0 .5rem;
+      @include screen(1050px) {
+        width: 100%;
+      }
+    }
+  }
+  &__text {
+    font-size: 16px;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+  &__top-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 1rem;
+    @include border(1px, solid, #21316F, bottom);
+    @include screen(910px) {
+      border: none;
+      padding-bottom: 0;
+    }
+  }
+  &__content {
+    @include flex-center-column;
+    height: 100%;
+    flex: auto;
+    margin-left: calc(4rem + 1vw);
+    @include screen(1200px) {
+      margin-left: 2rem;
+    }
+    @include screen(501) {
+      padding: .5rem;
+    }
+    @include screen(340px) {
+      margin-left: 1rem;
+    }
+  }
+  &__nav {
+    width: 100%;
+    padding-top: 1rem;
+
+    .menu__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: -.5rem;
+      @include screen(910px) {
+        flex-direction: column;
+      }
+    }
+    .menu__link {
+      font-weight: 500;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  &__btns {
+    @include flex-center;
+  }
+  &__login {
+    margin-left: auto;
+    margin-right: rem(20px);
+  }
+
+  &__dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $yellow;
+    margin: 0 .5rem 0 auto;
+    padding: .25rem 0;
+
+    &:hover {
+      .header__drop-content {
+        display: block;
+      }
+    }
+  }
+
+  &__drop-content {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    background-color: $yellow;
+    z-index: 10;
+    white-space: nowrap;
+    border: 1px solid $yellow;
+  }
+
+  &__drop-link {
+    padding: .25rem;
+    color: $midnightblue;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $midnightblue;
+      color: $white;
+    }
+  }
+}

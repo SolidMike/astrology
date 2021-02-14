@@ -1,0 +1,77 @@
+section.main-courses
+    .container
+        .title Наши курсы
+        -
+            const cardsCourse = [
+                {
+                    video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                    img: './static/images/content/placeholder.jpg',
+                    title: 'Заголовок курса',
+                    content: 'Краткое описание курса, если нужно, или что-то другое',
+                    link: './course.html',
+                    label: 'Перейти к модулю',
+                    counter: '01',
+                    aos: 'fade-up',
+                    aosDeley: '50'
+                },
+                {
+                    video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                    img: './static/images/content/placeholder.jpg',
+                    title: 'Заголовок курса',
+                    content: 'Краткое описание курса, если нужно, или что-то другое',
+                    link: './course.html',
+                    label: 'Перейти к модулю',
+                    counter: '01',
+                    aos: 'fade-up',
+                    aosDeley: '550'
+                },
+                {
+                    video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                    img: './static/images/content/placeholder.jpg',
+                    title: 'Заголовок курса',
+                    content: 'Краткое описание курса, если нужно, или что-то другое',
+                    link: './course.html',
+                    label: 'Перейти к модулю',
+                    counter: '01',
+                    aos: 'fade-up',
+                    aosDeley: '1050'
+                },
+                {
+                    video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                    img: './static/images/content/placeholder.jpg',
+                    title: 'Заголовок курса',
+                    content: 'Краткое описание курса, если нужно, или что-то другое',
+                    link: './course.html',
+                    label: 'Перейти к модулю',
+                    counter: '01',
+                    aos: 'fade-up',
+                    aosDeley: '1550'
+                },
+                {
+                    video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                    img: './static/images/content/placeholder.jpg',
+                    title: 'Заголовок курса',
+                    content: 'Краткое описание курса, если нужно, или что-то другое',
+                    link: './course.html',
+                    label: 'Перейти к модулю',
+                    counter: '01',
+                    aos: 'fade-up',
+                    aosDeley: '2050'
+                },
+                {
+                    video: 'https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39',
+                    img: './static/images/content/placeholder.jpg',
+                    title: 'Заголовок курса',
+                    content: 'Краткое описание курса, если нужно, или что-то другое',
+                    link: './course.html',
+                    label: 'Перейти к модулю',
+                    counter: '01',
+                    aos: 'fade-up',
+                    aosDeley: '2550'
+                },
+            ]
+        .cards-grid
+            each card in cardsCourse
+                +card(card)
+        .btn-wrapp.main-courses__btn-wrapp
+            +btn({label: 'Открыть все крусы', href: './account-courses.html'})

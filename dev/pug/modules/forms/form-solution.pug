@@ -1,0 +1,7 @@
+form#form-solution.form.form_size_sm.form_theme_solution(action="#" method="post" data-aos="fade-up-left")
+    .form__body
+        +form_element({type: 'textarea', placeholder: 'Решение задания', title: 'Решение задания', name: 'solution', class_array: {block_class_mod: 'form-cell_full_width'}})
+        +btn({label: 'Отправить'})(type="submit" class="form__btn" style="margin-top: 40px; margin-left: 1rem;")
+        +form_element({type: 'file', placeholder: 'Решение задания', title: 'Решение', name: 'file', class_array: {block_class_mod: 'form-cell_type_file', hline_mod: 'form-cell__hline_type_file', elem_class: 'form-cell__field_type_file', wrapp_mod: 'form-cell__field-wrapper_type_file', file_mod: 'form-cell__file-field_type_file'}})
+        span.form__value.js-value
+

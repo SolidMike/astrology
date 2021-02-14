@@ -1,0 +1,22 @@
+form#modal-registration.form.form_modal(action="#" method="post")
+    .form__header
+        .form__title Зарегистрируйтесь
+    .form__body
+        +form_element({type: 'text', placeholder: 'Имя', title: 'Имя', name: 'name', class_array: {block_class_mod: 'form-cell_half_width'}})
+        +form_element({type: 'text', placeholder: '+7 (___) ___-__-__', title: 'Телефон', name: 'phone', class_array: {block_class_mod: 'form-cell_half_width'}})
+        dl.form-cell.form-cell_half_width
+            dt.form-cell__hline
+                label(for='pass') Пароль
+            dd.form-cell__field-wrapper.form-cell__field-wrapper_footnote
+                span(onclick='togglePass(event)').form-cell__toggle.is-active
+                input.form-cell__field(type='password' name='pass' id="pass" placeholder='Пароль' value="pass_123")
+        dl.form-cell.form-cell_half_width
+            dt.form-cell__hline
+                label(for='pass_confirm') Повторите пароль
+            dd.form-cell__field-wrapper
+                span(onclick='togglePass(event)').form-cell__toggle
+                input.form-cell__field(type='text' name='pass_confirm' id="pass_confirm" placeholder='Пароль' value="pass_123")
+    .form__btn-wrapp
+        +btn({label: 'Зарегистрироваться'})(type="submit" class="form__btn" style="margin-top: 2rem;")
+    .form__policy У вас уже есть аккаунт? #[br]
+        a.modal-btn(href="#modal-login") Войти

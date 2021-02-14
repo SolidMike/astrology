@@ -1,0 +1,53 @@
+.content-section {
+  ul,
+  ol {
+    padding: 0;
+    list-style-position: inside;
+  }
+  h2, .h2,
+  h3, .h3,
+  h4, .h4 {
+    font-size: rem(20px);
+    font-family: 'FuturaPT-Medium';
+    text-transform: uppercase;
+    line-height: 2;
+  }
+  h3, .h3,
+  h4, .h4 {
+    font-size: rem(18px);
+    line-height: 2.5;
+  }
+  table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  thead {
+    background-color: #9D9000;
+    border: 1px solid $white;
+    border-bottom-width: 2px;
+    color: #363100;
+    font-family: 'FuturaPT-Bold';
+  }
+  th {
+    text-transform: uppercase;
+    padding: .8rem 2rem;
+    &:not(:last-child) {
+      border-right: 1px solid $white;
+    }
+  }
+  td {
+    border: 1px solid $white;
+    font-size: 14px;
+    padding: .8rem 2rem;
+    background-color: $midnightblue;
+  }
+  &__table {
+    overflow-x: auto;
+  }
+  &__subject {
+    line-height: 1.625;
+    margin-top: calc(1rem + 1.5vw);
+  }
+}

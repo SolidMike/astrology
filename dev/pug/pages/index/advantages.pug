@@ -1,0 +1,33 @@
+section.advantages
+    .container
+        .text.text_fancy Что делает мое обучение особенным?
+        .title.advantages__title Какие преимущества получаете именно вы?
+        .cards-grid
+            -
+                const advList = [{
+                    icon: 'no-extra',
+                    title: 'Ничего лишнего',
+                    descr: 'Из множества курсов выбирайте только то, что действительно нужно и легко составляйте свой личный учебный план.',
+                    aos: 'zoom-out',
+                    aosDeley: '50'
+                    },
+                    {
+                        icon: 'comfort',
+                        title: 'Удобство',
+                        descr: 'занимайтесь в любое время, в любом месте, в своем личном онлайн-кабинете.',
+                        aos: 'zoom-out',
+                        aosDeley: '550'
+                    },
+                    {
+                        icon: 'multi',
+                        title: 'Мульти-направленность',
+                        descr: 'изучайте одновременно три направления - астрологию, нейропсихологию и психоанализ. Синтезируйте научные знания, достигайте высокого уровня возможностей, копите ресурс для успешного будущего.',
+                        aos: 'zoom-out',
+                        aosDeley: '1050'
+                    },]
+            each adv in advList
+                .advantages__card.adv-card(data-aos= adv.aos data-aos-delay= adv.aosDeley)
+                    .adv-card__icon
+                        +icon(adv.icon)
+                    .adv-card__title.subtitle #{adv.title}
+                    .adv-card__descr #{adv.descr}

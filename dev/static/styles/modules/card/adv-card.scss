@@ -1,0 +1,20 @@
+.adv-card {
+  text-align: center;
+  &__icon {
+    @include box(125px);
+    border-radius: 50%;
+    background: linear-gradient(180deg, #231250 0%, #190D3E 100%), #021452;
+    @include flex-center;
+    margin: 0 auto;
+  }
+  .svg-sprite-icon {
+    font-size: 3rem;
+    fill: #DECC01;
+  }
+  &__title {
+    margin-top: 1.8rem;
+  }
+  &__descr {
+    margin-top: .8rem;
+  }
+}

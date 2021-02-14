@@ -1,0 +1,41 @@
+extends template/main
+
+block variables
+    - var title = 'Уроки'
+    - const pageClass = 'lessons-page'
+
+block content
+    #scene
+        - for (let i = 1; i <=15; i++) {
+        +icon(`zodiac-${i}`)(data-depth="0.1")
+        - }
+        - for (let i = 1; i <=5; i++) {
+        img(src=`./static/images/general/constellation-${i}.png` data-depth=`0.${i + 2}` class=`constellation-${i}`)
+        - }
+    section.lessons
+        .container
+            ul.breadcrumbs
+                +breadcrumbs-item('Главная','/')
+                +breadcrumbs-item('Наши курсы','./account-courses.html')
+                +breadcrumbs-item('Название конкретного курса', './course.html')
+                +breadcrumbs-item('Название конкретного модуля', './modules.html')
+                +breadcrumbs-item('Название конкретного урока')
+            .lessons__grid
+                .lessons__video.card(data-aos="fade-down-right")
+                    .card__ribbon
+                        .card__counter #[span урок]#[br] 01
+                    a(data-fancybox href="https://www.youtube.com/watch?v=ZXsQAXx_ao0&list=FLWuPq7Rd4WqwgzXRBl3q_Ww&index=39").card__video
+                        .card__play
+                        img(src="./static/images/content/placeholder.jpg").card__img.lessons__img
+                .lessons__content(data-aos="fade-down-left")
+                    .title.lessons__title Название конерктного #[br] урока
+                    p Описание урока.
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    +btn({label: 'Задание по уроку', icon: {name: 'download', mod: 'btn__icon_left btn__icon'}, href: './static/images/content/owner.png', size: 'big'})(download="file_name" class="lessons__btn")
+                .lessons__professor(data-aos="fade-up-right")
+                    img(src="./static/images/content/lessons-photo.png").lessons__photo
+                    .lessons__anthroponym
+                        p Преподаватель
+                        p.text.text_fancy.lessons__name Карина #[br] Демченко
+                        +btn({label: 'Написать преподавателю', href: '#modal-request', icon: {name: 'send', mod: 'btn__icon_left btn__icon btn__icon_theme_transparent'}, skin: 'transparent', size: 'big'})(class="lessons__btn modal-btn")
+                include ./modules/forms/form-solution
